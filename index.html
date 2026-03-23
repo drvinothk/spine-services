@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spine Services</title>
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
     body { margin:0; font-family: 'Segoe UI', sans-serif; background:#06080f; color:#e9edf5; line-height:1.6; overflow-x:hidden; }
@@ -24,18 +25,32 @@
     .section h2 { font-size:32px; margin-bottom:10px; }
     .grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
     .grid-image { width:100%; max-width:480px; height:auto; border-radius:10px; object-fit:cover; justify-self:center; }
-    .services-image { width:100%; max-width:700px; height:auto; border-radius:10px; display:block; margin:20px auto; }
+    .impact-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; margin-top:20px; }
+    .impact-grid img { width:100%; height:auto; border-radius:10px; object-fit:cover; }
+    .impact-stats { display:flex; flex-direction:column; justify-content:center; gap:20px; }
+    .impact-stat { background:#0c1220; border:1px solid #1a2338; border-radius:10px; padding:20px 24px; }
+    .impact-stat .number { font-size:36px; font-weight:700; color:#4da3ff; }
+    .impact-stat .label { font-size:14px; color:#a7b0c0; margin-top:4px; }
     .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
     .card { background:#0c1220; padding:20px; border-radius:10px; border:1px solid #1a2338; }
     .team { display:grid; grid-template-columns:1fr 1fr; gap:30px; }
     .team-member { display:flex; flex-direction:column; align-items:flex-start; }
     .team-member img { width:140px; height:140px; border-radius:50%; object-fit:cover; margin-bottom:12px; }
+    .email-btn { display:inline-flex; align-items:center; gap:10px; background:#0c1220; border:1px solid #4da3ff; border-radius:8px; padding:14px 24px; margin-top:16px; text-decoration:none; color:#e9edf5; font-size:16px; cursor:pointer; transition:background 0.2s; }
+    .email-btn:hover { background:#1a2338; }
+    .email-btn .icon { font-size:20px; }
+    .email-btn .email-text { font-weight:600; color:#4da3ff; }
+    .email-btn .hint { font-size:12px; color:#a7b0c0; display:block; }
+    .calendly-section { margin-top:40px; }
+    .calendly-section h3 { font-size:20px; margin-bottom:16px; color:#7cc2ff; }
+    .calendly-inline-widget { min-width:320px; height:700px; }
     footer { text-align:center; padding:20px; color:#888; }
     @media(max-width:900px){
       .hero { flex-direction:column; }
       .hero-text { max-width:100%; }
       .hero-image { max-width:100%; }
       .grid { grid-template-columns:1fr; }
+      .impact-grid { grid-template-columns:1fr; }
       .cards { grid-template-columns:1fr; }
       .team { grid-template-columns:1fr; }
     }
@@ -124,14 +139,26 @@
   </div>
 </section>
 
+<!-- MEASURED IMPACT -->
 <section class="section">
   <h2>Measured Impact</h2>
-  <img class="services-image" src="services.png.png" alt="Measured Impact">
-  <ul>
-    <li>Reduced CI turnaround time by up to 50%</li>
-    <li>Accelerated SLR timelines by up to 40%</li>
-    <li>Global experience across multiple therapeutic areas</li>
-  </ul>
+  <div class="impact-grid">
+    <img src="services.png.png" alt="Measured Impact">
+    <div class="impact-stats">
+      <div class="impact-stat">
+        <div class="number">50%</div>
+        <div class="label">Reduction in CI turnaround time</div>
+      </div>
+      <div class="impact-stat">
+        <div class="number">40%</div>
+        <div class="label">Acceleration in SLR timelines</div>
+      </div>
+      <div class="impact-stat">
+        <div class="number">Global</div>
+        <div class="label">Experience across multiple therapeutic areas</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="section">
@@ -158,13 +185,24 @@
 
 <section class="section" id="contact">
   <h2>Contact</h2>
-  <p>Email: <a href="mailto:connect@spineservices.org" style="color:#4da3ff">connect@spineservices.org</a></p>
-  <p><a href="https://calendly.com/drvinothk" target="_blank" style="color:#4da3ff">Book a Meeting via Calendly</a></p>
+  <a href="mailto:connect@spineservices.org" class="email-btn">
+    <span class="icon">&#9993;</span>
+    <div>
+      <span class="email-text">connect@spineservices.org</span>
+      <span class="hint">Click to email &bull; or copy the address</span>
+    </div>
+  </a>
+  <div class="calendly-section">
+    <h3>Book Zoom Meeting for Strategic Discussion</h3>
+    <div class="calendly-inline-widget" data-url="https://calendly.com/drvinothk?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=06080f&text_color=e9edf5&primary_color=4da3ff"></div>
+  </div>
 </section>
 
 <footer>
   <p>&copy; Spine Services</p>
 </footer>
+
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
 </body>
 </html>
