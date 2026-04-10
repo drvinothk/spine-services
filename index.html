@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,8 +52,8 @@ nav a:hover { color:#4da3ff; }
 .hero h1 { font-size:42px; color:#e9edf5; font-weight:700; margin-bottom:10px; line-height:1.2; }
 .hero h2 { font-size:24px; color:#7cc2ff; font-weight:400; font-style:italic; margin-bottom:20px; }
 .hero p { color:#a7b0c0; }
-.hero-image { flex:1; max-width:500px; }
-.hero-image img { width:100%; max-width:500px; height:auto; border-radius:12px; object-fit:cover; }
+.hero-image { flex:1; max-width:500px; min-height:300px; display:flex; align-items:center; justify-content:center; }
+.hero-image img { width:100%; max-width:500px; height:auto; border-radius:12px; object-fit:cover; display:block; }
 .cta button { margin-top:20px; padding:12px 20px; border:none; border-radius:6px; cursor:pointer; background:#4da3ff; color:#000; font-weight:600; }
 .section { padding:60px 40px; }
 .section h2 { font-size:32px; margin-bottom:20px; text-align:center; }
@@ -76,7 +75,7 @@ nav a:hover { color:#4da3ff; }
 .impact-stat { background:#0c1220; border:1px solid #1a2338; border-radius:10px; padding:20px 24px; }
 .impact-stat .number { font-size:36px; font-weight:700; color:#4da3ff; }
 .impact-stat .label { font-size:14px; color:#a7b0c0; margin-top:4px; }
-.testimonial-card { background:#0c1220; padding:24px; border-radius:10px; border:1px solid #1a2338; text-align:center; }
+.testimonial-card { background:#0c1220; padding:24px; border-radius:10px; border:1px solid #1a2338; text-align:center; margin: 0 auto; max-width: 800px; margin-bottom: 20px; }
 .testimonial-card p { font-style:italic; margin-bottom:12px; }
 .testimonial-attribution { display:block; font-weight:600; font-size:14px; color:#4da3ff; }
 .team { display:grid; grid-template-columns:1fr 1fr; gap:30px; }
@@ -123,7 +122,7 @@ footer { text-align:center; padding:20px; color:#888; }
     <h2>AI-powered insights across the drug development lifecycle.</h2>
     <p>Driving faster, smarter decisions across competitive intelligence, forecasting, and strategic initiatives. Supporting clients across US, EU, UK, and Japan.</p>
     <div class="cta">
-      <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a Strategic Discussion</button>
+      <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a Meeting to Know More</button>
     </div>
   </div>
   <div class="hero-image">
@@ -214,15 +213,13 @@ footer { text-align:center; padding:20px; color:#888; }
 
 <section class="section">
   <h2>Client Feedback</h2>
-  <div class="cards">
-    <div class="card testimonial-card">
-      <p>"Spine Services supported us with CI landscapes and monitoring, enabling focus on core priorities."</p>
-      <span class="testimonial-attribution">— CEO, Emerging Biotech</span>
-    </div>
-    <div class="card testimonial-card">
-      <p>"Helped shape our external innovation strategy and licensing decisions."</p>
-      <span class="testimonial-attribution">— CSO, Global Pharma</span>
-    </div>
+  <div class="testimonial-card">
+    <p>"Spine Services supported us with CI landscapes and monitoring, enabling focus on core priorities."</p>
+    <span class="testimonial-attribution">— CEO, Emerging Biotech</span>
+  </div>
+  <div class="testimonial-card">
+    <p>"Helped shape our external innovation strategy and licensing decisions."</p>
+    <span class="testimonial-attribution">— CSO, Global Pharma</span>
   </div>
 </section>
 
@@ -238,8 +235,8 @@ footer { text-align:center; padding:20px; color:#888; }
     <div class="team-member">
       <img src="saurabh.jpg.png" alt="Saurabh Mittal" loading="lazy">
       <h3>Saurabh Mittal</h3>
-      <p>16+ years | CI, Forecasting, Market Analytics</p>
-      <div class="bio">Life sciences consulting professional with 16 years of experience supporting pharmaceutical and biotech clients across strategy, analytics, and commercial decision-making. Deep expertise in oncology, immunology, and rare diseases, with a strong track record in market assessment, competitive intelligence, forecasting, and pipeline analytics. Has led high-impact engagements and teams, delivering insights that drive asset prioritization and portfolio strategy. Experience includes SmartAnalyst (INIZIO Group), and WNS Analytics.</div>
+      <p>18+ years | CI, Forecasting, Market Analytics</p>
+      <div class="bio">Life sciences consulting professional with 18 years of experience supporting pharmaceutical and biotech clients across strategy, analytics, and commercial decision-making. Deep expertise in oncology, immunology, and rare diseases, with a strong track record in market assessment, competitive intelligence, forecasting, and pipeline analytics. Has led high-impact engagements and teams, delivering insights that drive asset prioritization and portfolio strategy. Experience includes SmartAnalyst (INIZIO Group), and WNS Analytics.</div>
     </div>
   </div>
 </section>
@@ -254,12 +251,10 @@ footer { text-align:center; padding:20px; color:#888; }
   </a>
   <div class="calendly-section">
     <h3>Book a Meeting to Know More</h3>
-    <div class="calendly-inline-widget" data-url="https://calendly.com/connect-spineservices/30min"></div>
+    <div class="calendly-inline-widget" data-url="https://calendly.com/drvinothk" style="min-width:320px;height:700px;"></div>
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
   </div>
 </section>
 <footer>&copy; Spine Services</footer>
 </body>
 </html>
-
-:::
