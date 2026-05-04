@@ -55,7 +55,7 @@ nav a:hover { color:#4da3ff; }
 .hero h1 { font-size:42px; color:#e9edf5; font-weight:700; margin-bottom:10px; line-height:1.2; }
 .hero h2 { font-size:24px; color:#7cc2ff; font-weight:400; font-style:italic; margin-bottom:20px; }
 .hero p { color:#a7b0c0; }
-.hero-image { flex:1; max-width:500px; min-height:300px; display:flex; align-items:center; justify-content:center; }
+.hero-image { flex:1; max-width:500px; min-height:320px; display:flex; align-items:center; justify-content:flex-end; }
 .hero-image img { width:100%; max-width:500px; height:auto; border-radius:12px; object-fit:cover; display:block; }
 .cta button { margin-top:20px; padding:12px 20px; border:none; border-radius:6px; cursor:pointer; background:#4da3ff; color:#000; font-weight:600; }
 .section { padding:60px 40px; }
@@ -77,8 +77,9 @@ nav a:hover { color:#4da3ff; }
 .cap-item:hover { transform:scale(1.15); box-shadow:0 8px 28px rgba(77,163,255,0.25); z-index:2; position:relative; border-color:rgba(77,163,255,0.5); }
 .grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
 .grid-image { width:100%; max-width:480px; height:auto; border-radius:10px; object-fit:cover; justify-self:center; }
+.ai-image { object-fit:cover; object-position:50% 45%; width:90%; max-width:432px; height:auto; clip-path:inset(2% 5% 3% 5% round 10px); }
 .impact-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; margin-top:20px; }
-.impact-grid img { width:100%; max-width:480px; height:auto; border-radius:12px; object-fit:cover; justify-self:center; }
+.impact-grid img { width:100%; max-width:480px; height:auto; min-height:320px; border-radius:12px; object-fit:cover; justify-self:center; }
 .impact-stats { display:flex; flex-direction:column; gap:16px; }
 .impact-stat { background:#0c1220; border:1px solid #1a2338; border-radius:14px; padding:32px 24px; display:flex; flex-direction:column; justify-content:center; }
 .impact-stat .number { font-size:30px; font-weight:600; color:#ffffff; line-height:1; margin-bottom:4px; }
@@ -97,7 +98,7 @@ nav a:hover { color:#4da3ff; }
 .email-btn .email-text { font-weight:600; color:#4da3ff; }
 
 .calendly-section { margin-top:20px; text-align:center; padding:12px 18px 10px; max-width:680px; margin-left:auto; margin-right:auto; }
-.calendly-inline-widget { width:100%; min-width:320px; height:745px; margin:0 auto; }
+.calendly-inline-widget { width:100%; min-width:320px; height:640px; margin:0 auto; }
 footer { text-align:center; padding:20px; color:#888; }
 @media(max-width:900px){
   header { flex-direction:column; gap:20px; }
@@ -123,6 +124,7 @@ footer { text-align:center; padding:20px; color:#888; }
 .tilt-box:hover,.impact-stat:hover,.testimonial-card:hover,.leader-card:hover{box-shadow:0 16px 48px rgba(77,163,255,0.18);}
 .calendly-box{background:#0c1220;border:1px solid #1a2338;border-radius:14px;padding:28px 32px;max-width:700px;margin:0 auto;}
 .cursor-dot{position:fixed;width:8px;height:8px;background:#4da3ff;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);transition:transform 0.1s;z-index:99999;} .cursor-ring{position:fixed;width:32px;height:32px;border:2px solid rgba(77,163,255,0.5);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);transition:width 0.3s,height 0.3s,border-color 0.3s;z-index:99998;} .cursor-ring.expand{width:48px;height:48px;border-color:rgba(77,163,255,0.8);} @keyframes fadeInUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}} .reveal{opacity:0;} .reveal.visible{animation:fadeInUp 0.7s ease forwards;} @keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}} .hero-image img{animation:heroFloat 5s ease-in-out infinite;} .card{transition:transform 0.55s cubic-bezier(0.23,1,0.32,1),box-shadow 0.55s;} .card:hover{transform:scale(1.025) translateY(-10px);box-shadow:0 8px 40px rgba(77,163,255,0.18);} nav a{position:relative;} nav a::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:2px;background:#4da3ff;transition:width 0.3s;} nav a:hover::after{width:100%;} .card-label{font-size:1.1rem !important;font-weight:700 !important;color:#4da3ff;border-bottom:2px solid rgba(77,163,255,0.4);padding-bottom:6px;margin-bottom:12px;display:block;} </style>
+@keyframes sectionFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}} .grid-image{animation:sectionFloat 6s ease-in-out infinite;} .impact-grid img{animation:sectionFloat 6s ease-in-out infinite 0.5s;}
 </head>
 <body>
   <div class="cursor-dot"></div>
@@ -207,7 +209,7 @@ footer { text-align:center; padding:20px; color:#888; }
       <p>AI-enabled workflows accelerate data mining, synthesis, and reporting, while human expertise ensures quality, interpretation, and strategic insights.</p>
       <p><strong>Speed of AI. Judgment of experts.</strong></p>
     </div>
-    <img src="ai.png.png" alt="AI Enabled" class="grid-image" loading="lazy">
+          <img src="ai.png.png" alt="AI Enabled" class="grid-image ai-image" loading="lazy">
   </div>
 </section>
 
@@ -394,16 +396,20 @@ footer { text-align:center; padding:20px; color:#888; }
 (function(){
   var calBox = document.querySelector('.calendly-section');
   if(!calBox) return;
-  calBox.addEventListener('click', function(){
+  function freezeTilt(){
     calBox.style.transform = 'none';
     calBox.style.boxShadow = 'none';
     calBox.style.transition = 'none';
-    calBox.dataset.tiltDisabled = '1';
-    calBox.removeEventListener('mousemove', calBox._tiltMove);
-    calBox.removeEventListener('mouseleave', calBox._tiltLeave);
-    // Override: freeze transform permanently
     calBox.addEventListener('mousemove', function(e){ e.stopPropagation(); }, true);
     calBox.addEventListener('mouseleave', function(){ calBox.style.transform='none'; });
-  }, { once: true });
+    document.removeEventListener('pointerdown', onPointerDown, true);
+  }
+  function onPointerDown(e){
+    var r = calBox.getBoundingClientRect();
+    if(e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom){
+      freezeTilt();
+    }
+  }
+  document.addEventListener('pointerdown', onPointerDown, true);
 })();
 </script>
