@@ -77,9 +77,9 @@ nav a:hover { color:#4da3ff; }
 .cap-item:hover { transform:scale(1.15); box-shadow:0 8px 28px rgba(77,163,255,0.25); z-index:2; position:relative; border-color:rgba(77,163,255,0.5); }
 .grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
 .grid-image { width:100%; max-width:480px; height:auto; border-radius:10px; object-fit:cover; justify-self:center; }
-.impact-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:20px; }
-.impact-grid img { display:none; }
-.impact-stats { display:contents; }
+.impact-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; margin-top:20px; }
+.impact-grid img { width:100%; max-width:480px; height:auto; border-radius:12px; object-fit:cover; justify-self:center; }
+.impact-stats { display:flex; flex-direction:column; gap:16px; }
 .impact-stat { background:#0c1220; border:1px solid #1a2338; border-radius:14px; padding:32px 24px; display:flex; flex-direction:column; justify-content:center; }
 .impact-stat .number { font-size:30px; font-weight:600; color:#ffffff; line-height:1; margin-bottom:4px; }
 .impact-stat .label { font-size:14px; color:#a7b0c0; margin-top:0; line-height:1.5; }\n.impact-stat .range { font-size:13px; color:#4da3ff; margin-top:8px; font-weight:600; display:block; }
@@ -225,26 +225,19 @@ footer { text-align:center; padding:20px; color:#888; }
 <section class="section">
   <h2>Measured Impact</h2>
   <div class="impact-grid">
-    <div class="impact-stat">
-      <div class="number" data-target="70" data-suffix="%">70%</div>
-      <div class="label">Up to 40–70% reduction in project turnaround time</div>
-    </div>
-    <div class="impact-stat">
-      <div class="number" data-target="60" data-suffix="%">60%</div>
-      <div class="label">Up to 40–60% reduction in project costs</div>
-    </div>
-    <div class="impact-stat">
-      <div class="number">Global</div>
-      <div class="label">Coverage across US, EU, UK, Japan, China, Australia, Canada, and Rest of World</div>
-      <div class="country-pills">
-        <span class="country-pill">&#127482;&#127480; United States</span>
-        <span class="country-pill">&#127466;&#127482; European Union</span>
-        <span class="country-pill">&#127468;&#127463; United Kingdom</span>
-        <span class="country-pill">&#127471;&#127477; Japan</span>
-        <span class="country-pill">&#127464;&#127475; China</span>
-        <span class="country-pill">&#127462;&#127482; Australia</span>
-        <span class="country-pill">&#127464;&#127462; Canada</span>
-        <span class="country-pill">&#127758; Rest of World</span>
+    <img src="services.png.png" alt="Measured Impact" class="grid-image" loading="lazy">
+    <div class="impact-stats">
+      <div class="impact-stat">
+        <div class="number" data-target="70" data-suffix="%">70%</div>
+        <div class="label">Up to 40–70% reduction in project turnaround time</div>
+      </div>
+      <div class="impact-stat">
+        <div class="number" data-target="60" data-suffix="%">60%</div>
+        <div class="label">Up to 40–60% reduction in project costs</div>
+      </div>
+      <div class="impact-stat">
+        <div class="number">Global</div>
+        <div class="label">Coverage across US, EU, UK, Japan, China, Australia, Canada, and Rest of World</div>
       </div>
     </div>
   </div>
@@ -395,5 +388,22 @@ footer { text-align:center; padding:20px; color:#888; }
       el.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
     });
   });
+})();
+</script>
+<script>
+(function(){
+  var calBox = document.querySelector('.calendly-section');
+  if(!calBox) return;
+  calBox.addEventListener('click', function(){
+    calBox.style.transform = 'none';
+    calBox.style.boxShadow = 'none';
+    calBox.style.transition = 'none';
+    calBox.dataset.tiltDisabled = '1';
+    calBox.removeEventListener('mousemove', calBox._tiltMove);
+    calBox.removeEventListener('mouseleave', calBox._tiltLeave);
+    // Override: freeze transform permanently
+    calBox.addEventListener('mousemove', function(e){ e.stopPropagation(); }, true);
+    calBox.addEventListener('mouseleave', function(){ calBox.style.transform='none'; });
+  }, { once: true });
 })();
 </script>
