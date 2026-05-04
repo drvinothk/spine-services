@@ -76,12 +76,12 @@ nav a:hover { color:#4da3ff; }
 .cap-item span { display:block; font-size:11px; color:#7a8fa6; margin-top:3px; line-height:1.4; }
 .grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
 .grid-image { width:100%; max-width:480px; height:auto; border-radius:10px; object-fit:cover; justify-self:center; }
-.impact-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; margin-top:20px; }
-.impact-grid img { width:100%; height:auto; border-radius:10px; object-fit:cover; }
-.impact-stats { display:flex; flex-direction:column; justify-content:center; gap:20px; }
-.impact-stat { background:#0c1220; border:1px solid #1a2338; border-radius:10px; padding:20px 24px; }
-.impact-stat .number { font-size:36px; font-weight:700; color:#4da3ff; }
-.impact-stat .label { font-size:14px; color:#a7b0c0; margin-top:4px; }
+.impact-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:20px; }
+.impact-grid img { display:none; }
+.impact-stats { display:contents; }
+.impact-stat { background:#0c1220; border:1px solid #1a2338; border-radius:14px; padding:32px 24px; display:flex; flex-direction:column; justify-content:center; }
+.impact-stat .number { font-size:52px; font-weight:800; color:#4da3ff; line-height:1; margin-bottom:12px; }
+.impact-stat .label { font-size:14px; color:#a7b0c0; margin-top:0; line-height:1.5; }
 .testimonial-card { background:#0c1220; padding:24px; border-radius:10px; border:1px solid #1a2338; text-align:center; margin: 0 auto; max-width: 800px; margin-bottom: 20px; }
 .testimonial-card p { font-style:italic; margin-bottom:12px; }
 .testimonial-attribution { display:block; font-weight:600; font-size:14px; color:#4da3ff; }
@@ -209,11 +209,17 @@ footer { text-align:center; padding:20px; color:#888; }
 <section class="section">
   <h2>Measured Impact</h2>
   <div class="impact-grid">
-    <img src="services.png.png" alt="Measured Impact" loading="lazy">
-    <div class="impact-stats">
-      <div class="impact-stat"><div class="number">40-70%</div><div class="label">Reduction in project turnaround time</div></div>
-      <div class="impact-stat"><div class="number">40-60%</div><div class="label">Reduction in Project Costs</div></div>
-      <div class="impact-stat"><div class="number">Global</div><div class="label">Experience across multiple therapeutic areas and several developed markets</div></div>
+    <div class="impact-stat">
+      <div class="number" data-target="70" data-suffix="%" data-prefix="Up to ">Up to 70%</div>
+      <div class="label">Reduction in project turnaround time</div>
+    </div>
+    <div class="impact-stat">
+      <div class="number" data-target="60" data-suffix="%" data-prefix="Up to ">Up to 60%</div>
+      <div class="label">Reduction in project costs</div>
+    </div>
+    <div class="impact-stat">
+      <div class="number">Global</div>
+      <div class="label">Experience across multiple therapeutic areas and several developed markets</div>
     </div>
   </div>
 </section>
@@ -272,3 +278,37 @@ footer { text-align:center; padding:20px; color:#888; }
 </div>
 <script>if(localStorage.getItem('cookie-ok')||localStorage.getItem('cookie-reject')){document.getElementById('cookie-banner').style.display='none';}</script>
 </html>
+
+<script>
+(function(){
+  function animateCount(el) {
+    var target = parseInt(el.getAttribute('data-target'));
+    var prefix = el.getAttribute('data-prefix') || '';
+    var suffix = el.getAttribute('data-suffix') || '';
+    var duration = 1800;
+    var start = 0;
+    var startTime = null;
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var progress = Math.min((timestamp - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = Math.floor(eased * target);
+      el.textContent = prefix + current + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = prefix + target + suffix;
+    }
+    requestAnimationFrame(step);
+  }
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting && !entry.target.dataset.animated) {
+        entry.target.dataset.animated = '1';
+        animateCount(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.number[data-target]').forEach(function(el) {
+    observer.observe(el);
+  });
+})();
+</script>
