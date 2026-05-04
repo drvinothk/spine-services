@@ -117,6 +117,10 @@ footer { text-align:center; padding:20px; color:#888; }
 .leader-bio { font-size:14px; color:#a7b0c0; line-height:1.7; margin:0; border-top:1px solid #1a2338; padding-top:16px; }
 .country-pills { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
 .country-pill { background:#1a2338; border:1px solid #2a3550; border-radius:6px; padding:4px 10px; font-size:12px; color:#a7b0c0; }
+.content-box{background:#0c1220;border:1px solid #1a2338;border-radius:14px;padding:28px 32px;}
+.tilt-box,.impact-stat,.testimonial-card,.leader-card{transition:transform 0.15s ease,box-shadow 0.15s ease;transform-style:preserve-3d;will-change:transform;}
+.tilt-box:hover,.impact-stat:hover,.testimonial-card:hover,.leader-card:hover{box-shadow:0 16px 48px rgba(77,163,255,0.18);}
+.calendly-box{background:#0c1220;border:1px solid #1a2338;border-radius:14px;padding:28px 32px;max-width:700px;margin:0 auto;}
 .cursor-dot{position:fixed;width:8px;height:8px;background:#4da3ff;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);transition:transform 0.1s;z-index:99999;} .cursor-ring{position:fixed;width:32px;height:32px;border:2px solid rgba(77,163,255,0.5);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);transition:width 0.3s,height 0.3s,border-color 0.3s;z-index:99998;} .cursor-ring.expand{width:48px;height:48px;border-color:rgba(77,163,255,0.8);} @keyframes fadeInUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}} .reveal{opacity:0;} .reveal.visible{animation:fadeInUp 0.7s ease forwards;} @keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}} .hero-image img{animation:heroFloat 5s ease-in-out infinite;} .card{transition:transform 0.55s cubic-bezier(0.23,1,0.32,1),box-shadow 0.55s;} .card:hover{transform:scale(1.025) translateY(-10px);box-shadow:0 8px 40px rgba(77,163,255,0.18);} nav a{position:relative;} nav a::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:2px;background:#4da3ff;transition:width 0.3s;} nav a:hover::after{width:100%;} .card-label{font-size:1.1rem !important;font-weight:700 !important;color:#4da3ff;border-bottom:2px solid rgba(77,163,255,0.4);padding-bottom:6px;margin-bottom:12px;display:block;} </style>
 </head>
 <body>
@@ -149,7 +153,7 @@ footer { text-align:center; padding:20px; color:#888; }
 </section>
 
 <section class="section" id="about">
-  <div class="about-content">
+  <div class="about-content content-box tilt-box">
     <h2>About Spine Services</h2>
     <p>Spine Services is an AI-enabled strategic intelligence firm focused on life sciences, helping organizations make faster, smarter decisions across competitive intelligence, forecasting, and scientific support.</p>
     <h3>Why Spine Services?</h3>
@@ -198,7 +202,7 @@ footer { text-align:center; padding:20px; color:#888; }
 <section class="section">
   <h2>AI-Enabled, Human-Guided</h2>
   <div class="grid">
-    <div>
+    <div class="content-box tilt-box">
       <p>AI-enabled workflows accelerate data mining, synthesis, and reporting, while human expertise ensures quality, interpretation, and strategic insights.</p>
       <p><strong>Speed of AI. Judgment of experts.</strong></p>
     </div>
@@ -209,7 +213,7 @@ footer { text-align:center; padding:20px; color:#888; }
 <section class="section">
   <h2>Security &amp; Compliance</h2>
   <div class="grid">
-    <div>
+    <div class="content-box tilt-box">
       <p>Built on experience within global pharma-grade data security, compliance, and governance frameworks.</p>
       <p>NDA-driven engagements, secure environments, and strict data handling protocols.</p>
     </div>
@@ -290,7 +294,7 @@ footer { text-align:center; padding:20px; color:#888; }
       <span class="email-text">connect@spineservices.org</span>
     </span>
   </a>
-  <div class="calendly-section">
+  <div class="calendly-section content-box tilt-box">
     <h3>Book a Meeting to Know More</h3>
     <div class="calendly-inline-widget" data-url="https://calendly.com/drvinothk" ></div>
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
@@ -364,5 +368,28 @@ footer { text-align:center; padding:20px; color:#888; }
     requestAnimationFrame(animateRing);
   }
   animateRing();
+})();
+</script>
+<script>
+(function(){
+  var tiltEls = document.querySelectorAll('.tilt-box, .impact-stat, .testimonial-card, .leader-card');
+  var MAX_TILT = 6;
+  tiltEls.forEach(function(el){
+    el.addEventListener('mousemove', function(e){
+      var r = el.getBoundingClientRect();
+      var x = e.clientX - r.left;
+      var y = e.clientY - r.top;
+      var cx = r.width / 2;
+      var cy = r.height / 2;
+      var dx = (x - cx) / cx;
+      var dy = (y - cy) / cy;
+      var rotY = dx * MAX_TILT;
+      var rotX = -dy * MAX_TILT;
+      el.style.transform = 'perspective(800px) rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg) scale3d(1.02,1.02,1.02)';
+    });
+    el.addEventListener('mouseleave', function(){
+      el.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
+    });
+  });
 })();
 </script>
