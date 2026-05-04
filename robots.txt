@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://spineservices.org/sitemap.xml
+Sitemap: https://www.spineservices.org/sitemap.xml
