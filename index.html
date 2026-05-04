@@ -95,9 +95,9 @@ nav a:hover { color:#4da3ff; }
 .email-btn:hover { background:#1a2338; transform:translateY(-2px); }
 .email-btn .icon { font-size:24px; }
 .email-btn .email-text { font-weight:600; color:#4da3ff; }
-.calendly-section { margin-top:20px; text-align:center; padding:20px 24px 16px; max-width:760px; margin-left:auto; margin-right:auto; }
-.calendly-section h3 { font-size:20px; margin-bottom:16px; color:#7cc2ff; }
-.calendly-inline-widget { width: 62.5%; max-width: 650px; min-width: 320px; height: 450px; margin: 0 auto; }
+
+.calendly-section { margin-top:20px; text-align:center; padding:12px 18px 10px; max-width:680px; margin-left:auto; margin-right:auto; }
+.calendly-inline-widget { width:100%; min-width:320px; height:745px; margin:0 auto; }
 footer { text-align:center; padding:20px; color:#888; }
 @media(max-width:900px){
   header { flex-direction:column; gap:20px; }
@@ -296,17 +296,20 @@ footer { text-align:center; padding:20px; color:#888; }
     </span>
   </a>
   <div class="calendly-section content-box tilt-box">
-    <h3>Book a Meeting to Know More</h3>
-    <div class="calendly-inline-widget" data-url="https://calendly.com/drvinothk" ></div>
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-  </div>
-</section>
+      <h3>Book a Meeting to Know More</h3>
+      <!-- Calendly inline widget begin -->
+      <div class="calendly-inline-widget" data-url="https://calendly.com/drvinothk/30min?hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      <!-- Calendly inline widget end -->
+    </div>
+  </section>
 <footer>&copy; Spine Services &nbsp;|&nbsp; <a href="privacy.html" style="color:#a7b0c0;text-decoration:none;">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms.html" style="color:#a7b0c0;text-decoration:none;">Terms &amp; Conditions</a><br><small style="color:#666;font-size:11px;">Spine Services LLP | connect@spineservices.org | Grievance Officer: Dr. Vinoth Khandelwal, connect@spineservices.org</small></footer>
-<div id="cookie-banner" style="position:fixed;bottom:0;left:0;width:100%;background:#0c1220;border-top:1px solid #1a2338;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:9999;font-size:14px;color:#a7b0c0;">
+<div id="cookie-banner" style="position:fixed;bottom:0;left:0;width:100%;background:#0c1220;border-top:1px solid #1a2338;color:#a7b0c0;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;z-index:99997;font-size:13px;">
   <span>This site uses cookies from Calendly for meeting scheduling. By continuing, you agree to our <a href="privacy.html" style="color:#4da3ff;">Privacy Policy</a>.</span>
-  <div style="display:flex;gap:10px;">
-    <button onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('cookie-reject','1');" style="background:transparent;border:1px solid #4da3ff;color:#4da3ff;border-radius:6px;padding:8px 18px;font-weight:600;cursor:pointer;">Reject Non-Essential</button>
-    <button onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('cookie-ok','1');" style="background:#4da3ff;color:#0a0e1a;border:none;border-radius:6px;padding:8px 18px;font-weight:600;cursor:pointer;">Accept All</button>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <button onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('cookie-rej','1')" style="background:transparent;border:1px solid #2a3550;color:#a7b0c0;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:12px;">Reject Non-Essential</button>
+    <button onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('cookie-ok','1')" style="background:#4da3ff;border:none;color:#fff;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:12px;">Accept All</button>
+    <button onclick="document.getElementById('cookie-banner').style.display='none'" style="background:transparent;border:none;color:#a7b0c0;font-size:18px;cursor:pointer;padding:0 4px;line-height:1;" title="Close">&times;</button>
   </div>
 </div>
 <script>if(localStorage.getItem('cookie-ok')||localStorage.getItem('cookie-reject')){document.getElementById('cookie-banner').style.display='none';}</script>
