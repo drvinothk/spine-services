@@ -80,8 +80,8 @@ nav a:hover { color:#4da3ff; }
 .impact-grid img { display:none; }
 .impact-stats { display:contents; }
 .impact-stat { background:#0c1220; border:1px solid #1a2338; border-radius:14px; padding:32px 24px; display:flex; flex-direction:column; justify-content:center; }
-.impact-stat .number { font-size:52px; font-weight:800; color:#4da3ff; line-height:1; margin-bottom:12px; }
-.impact-stat .label { font-size:14px; color:#a7b0c0; margin-top:0; line-height:1.5; }
+.impact-stat .number { font-size:36px; font-weight:800; color:#ffffff; line-height:1; margin-bottom:4px; }
+.impact-stat .label { font-size:14px; color:#a7b0c0; margin-top:0; line-height:1.5; }\n.impact-stat .range { font-size:13px; color:#4da3ff; margin-top:8px; font-weight:600; display:block; }
 .testimonial-card { background:#0c1220; padding:24px; border-radius:10px; border:1px solid #1a2338; text-align:center; margin: 0 auto; max-width: 800px; margin-bottom: 20px; }
 .testimonial-card p { font-style:italic; margin-bottom:12px; }
 .testimonial-attribution { display:block; font-weight:600; font-size:14px; color:#4da3ff; }
@@ -111,6 +111,8 @@ footer { text-align:center; padding:20px; color:#888; }
 .cursor-dot{position:fixed;width:8px;height:8px;background:#4da3ff;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);transition:transform 0.1s;z-index:99999;} .cursor-ring{position:fixed;width:32px;height:32px;border:2px solid rgba(77,163,255,0.5);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);transition:width 0.3s,height 0.3s,border-color 0.3s;z-index:99998;} .cursor-ring.expand{width:48px;height:48px;border-color:rgba(77,163,255,0.8);} @keyframes fadeInUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}} .reveal{opacity:0;} .reveal.visible{animation:fadeInUp 0.7s ease forwards;} @keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}} .hero-image img{animation:heroFloat 5s ease-in-out infinite;} .card{transition:transform 0.55s cubic-bezier(0.23,1,0.32,1),box-shadow 0.55s;} .card:hover{transform:scale(1.025) translateY(-10px);box-shadow:0 8px 40px rgba(77,163,255,0.18);} nav a{position:relative;} nav a::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:2px;background:#4da3ff;transition:width 0.3s;} nav a:hover::after{width:100%;} .card-label{font-size:1.1rem !important;font-weight:700 !important;color:#4da3ff;border-bottom:2px solid rgba(77,163,255,0.4);padding-bottom:6px;margin-bottom:12px;display:block;} </style>
 </head>
 <body>
+  <div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
 <header>
   <div class="logo">
     <img src="logo.png.png" alt="Spine Services Logo" loading="lazy">
@@ -210,11 +212,11 @@ footer { text-align:center; padding:20px; color:#888; }
   <h2>Measured Impact</h2>
   <div class="impact-grid">
     <div class="impact-stat">
-      <div class="number" data-target="70" data-suffix="%" data-prefix="Up to ">Up to 70%</div>
+      <div class="number" data-target="70" data-suffix="%" data-prefix="Up to ">Up to 70%</div><span class="range">(Range: 40–70%)</span>
       <div class="label">Reduction in project turnaround time</div>
     </div>
     <div class="impact-stat">
-      <div class="number" data-target="60" data-suffix="%" data-prefix="Up to ">Up to 60%</div>
+      <div class="number" data-target="60" data-suffix="%" data-prefix="Up to ">Up to 60%</div><span class="range">(Range: 40–60%)</span>
       <div class="label">Reduction in project costs</div>
     </div>
     <div class="impact-stat">
@@ -310,5 +312,31 @@ footer { text-align:center; padding:20px; color:#888; }
   document.querySelectorAll('.number[data-target]').forEach(function(el) {
     observer.observe(el);
   });
+})();
+</script>
+<script>
+(function(){
+  var dot = document.querySelector('.cursor-dot');
+  var ring = document.querySelector('.cursor-ring');
+  if (!dot || !ring) return;
+  var mx = window.innerWidth/2, my = window.innerHeight/2;
+  var rx = mx, ry = my;
+  document.addEventListener('mousemove', function(e){
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx + 'px';
+    dot.style.top = my + 'px';
+  });
+  document.querySelectorAll('a,button,.btn').forEach(function(el){
+    el.addEventListener('mouseenter', function(){ ring.classList.add('expand'); });
+    el.addEventListener('mouseleave', function(){ ring.classList.remove('expand'); });
+  });
+  function animateRing(){
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
 })();
 </script>
