@@ -69,11 +69,12 @@ nav a:hover { color:#4da3ff; }
 .card h3 { font-size:22px; color:#4da3ff; margin-top:0; margin-bottom:15px; }
 .card ul { list-style:none; padding:0; margin:0; }
 .card li { margin-bottom:12px; font-size:14px; color:#e9edf5; }
-.card li strong { color:#4da3ff; display:inline; }
-.cap-grid { display:flex; flex-wrap:wrap; gap:8px 16px; margin-top:12px; }
-.cap-item { flex:1 1 45%; background:rgba(77,163,255,0.06); border:1px solid rgba(77,163,255,0.2); border-radius:8px; padding:10px 12px; box-sizing:border-box; overflow:visible; }
-.cap-item strong { display:block; font-size:13px; color:#4da3ff; font-weight:700; letter-spacing:0.01em; }
-.cap-item span { display:block; font-size:11px; color:#7a8fa6; margin-top:3px; line-height:1.4; }
+.cap-grid { display:flex; flex-wrap:wrap; gap:8px 16px; margin-top:12px; overflow:visible; }
+
+.cap-item { flex:1 1 45%; background:rgba(77,163,255,0.06); border:1px solid rgba(77,163,255,0.2); border-radius:8px; padding:10px 12px; box-sizing:border-box; overflow:visible; transition:transform 0.25s ease, box-shadow 0.25s ease; cursor:default; }
+.cap-item strong { display:block; font-size:13px; color:#e9edf5; font-weight:700; letter-spacing:0.01em; }
+.cap-item span { display:block; font-size:11px; color:#e9edf5; margin-top:3px; line-height:1.4; }
+.cap-item:hover { transform:scale(1.15); box-shadow:0 8px 28px rgba(77,163,255,0.25); z-index:2; position:relative; border-color:rgba(77,163,255,0.5); }
 .grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
 .grid-image { width:100%; max-width:480px; height:auto; border-radius:10px; object-fit:cover; justify-self:center; }
 .impact-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:20px; }
