@@ -108,6 +108,15 @@ footer { text-align:center; padding:20px; color:#888; }
   .cards { grid-template-columns:1fr; }
   .team { grid-template-columns:1fr; } .calendly-inline-widget { width: 100%; max-width: 100%; height: 525px; }
 }
+.leader-card { background:#0c1220; border:1px solid #1a2338; border-radius:14px; padding:28px; display:flex; flex-direction:column; gap:20px; }
+.leader-top { display:flex; gap:20px; align-items:flex-start; }
+.leader-photo { width:90px; height:90px; border-radius:8px; object-fit:cover; flex-shrink:0; }
+.leader-info { display:flex; flex-direction:column; justify-content:center; gap:4px; }
+.leader-name { font-size:18px; font-weight:700; color:#ffffff; margin:0; }
+.leader-role { font-size:13px; color:#4da3ff; font-weight:500; margin:0; }
+.leader-bio { font-size:14px; color:#a7b0c0; line-height:1.7; margin:0; border-top:1px solid #1a2338; padding-top:16px; }
+.country-pills { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+.country-pill { background:#1a2338; border:1px solid #2a3550; border-radius:6px; padding:4px 10px; font-size:12px; color:#a7b0c0; }
 .cursor-dot{position:fixed;width:8px;height:8px;background:#4da3ff;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);transition:transform 0.1s;z-index:99999;} .cursor-ring{position:fixed;width:32px;height:32px;border:2px solid rgba(77,163,255,0.5);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);transition:width 0.3s,height 0.3s,border-color 0.3s;z-index:99998;} .cursor-ring.expand{width:48px;height:48px;border-color:rgba(77,163,255,0.8);} @keyframes fadeInUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}} .reveal{opacity:0;} .reveal.visible{animation:fadeInUp 0.7s ease forwards;} @keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}} .hero-image img{animation:heroFloat 5s ease-in-out infinite;} .card{transition:transform 0.55s cubic-bezier(0.23,1,0.32,1),box-shadow 0.55s;} .card:hover{transform:scale(1.025) translateY(-10px);box-shadow:0 8px 40px rgba(77,163,255,0.18);} nav a{position:relative;} nav a::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:2px;background:#4da3ff;transition:width 0.3s;} nav a:hover::after{width:100%;} .card-label{font-size:1.1rem !important;font-weight:700 !important;color:#4da3ff;border-bottom:2px solid rgba(77,163,255,0.4);padding-bottom:6px;margin-bottom:12px;display:block;} </style>
 </head>
 <body>
@@ -212,20 +221,29 @@ footer { text-align:center; padding:20px; color:#888; }
   <h2>Measured Impact</h2>
   <div class="impact-grid">
     <div class="impact-stat">
-      <div class="number" data-target="70" data-suffix="%" data-prefix="Up to ">Up to 70%</div><span class="range">(Range: 40–70%)</span>
-      <div class="label">Reduction in project turnaround time</div>
+      <div class="number" data-target="70" data-suffix="%">70%</div>
+      <div class="label">Up to 40–70% reduction in project turnaround time</div>
     </div>
     <div class="impact-stat">
-      <div class="number" data-target="60" data-suffix="%" data-prefix="Up to ">Up to 60%</div><span class="range">(Range: 40–60%)</span>
-      <div class="label">Reduction in project costs</div>
+      <div class="number" data-target="60" data-suffix="%">60%</div>
+      <div class="label">Up to 40–60% reduction in project costs</div>
     </div>
     <div class="impact-stat">
       <div class="number">Global</div>
-      <div class="label">Experience across multiple therapeutic areas and several developed markets</div>
+      <div class="label">Coverage across US, EU, UK, Japan, China, Australia, Canada, and Rest of World</div>
+      <div class="country-pills">
+        <span class="country-pill">&#127482;&#127480; United States</span>
+        <span class="country-pill">&#127466;&#127482; European Union</span>
+        <span class="country-pill">&#127468;&#127463; United Kingdom</span>
+        <span class="country-pill">&#127471;&#127477; Japan</span>
+        <span class="country-pill">&#127464;&#127475; China</span>
+        <span class="country-pill">&#127462;&#127482; Australia</span>
+        <span class="country-pill">&#127464;&#127462; Canada</span>
+        <span class="country-pill">&#127758; Rest of World</span>
+      </div>
     </div>
   </div>
 </section>
-
 <section class="section">
   <h2>Client Feedback</h2>
   <div class="testimonial-card">
@@ -241,17 +259,25 @@ footer { text-align:center; padding:20px; color:#888; }
 <section class="section" id="people">
   <h2>Leadership</h2>
   <div class="team">
-    <div class="team-member">
-      <img src="vinoth.jpg.png" alt="Dr. Vinoth Khandelwal" loading="lazy">
-      <h3>Dr. Vinoth Khandelwal</h3>
-      <p>PhD | 16+ years | Competitive Intelligence, Strategy, GCC</p>
-      <div class="bio">PhD in pharmacology with 16 years of experience enabling biopharma decision-making across oncology, metabolic disorders, cardiovascular diseases, Alzheimer’s disease, and global health. Experience spans Novo Nordisk, GSK, and SmartAnalyst (Putnam), working at the intersection of R&amp;D, competitive intelligence, and strategy. Known for translating complex clinical, scientific, and market signals into clear portfolio direction and investment decisions. Also brings experience in building and scaling Global Capability Centers (GCC) and contributes as a Certified Independent Director.</div>
+    <div class="leader-card">
+      <div class="leader-top">
+        <img src="vinoth.jpg.png" alt="Dr. Vinoth Khandelwal" class="leader-photo" loading="lazy">
+        <div class="leader-info">
+          <h3 class="leader-name">Dr. Vinoth Khandelwal</h3>
+          <p class="leader-role">PhD | 16+ years | Competitive Intelligence, Strategy, GCC</p>
+        </div>
+      </div>
+      <p class="leader-bio">PhD in pharmacology with 16 years of experience enabling biopharma decision-making across oncology, metabolic disorders, cardiovascular diseases, Alzheimer’s disease, and global health. Experience spans Novo Nordisk, GSK, and SmartAnalyst (Putnam), working at the intersection of R&D, competitive intelligence, and strategy. Known for translating complex clinical, scientific, and market signals into clear portfolio direction and investment decisions. Also brings experience in building and scaling Global Capability Centers (GCC) and contributes as a Certified Independent Director.</p>
     </div>
-    <div class="team-member">
-      <img src="saurabh.jpg.png" alt="Saurabh Mittal" loading="lazy">
-      <h3>Saurabh Mittal</h3>
-      <p>18+ years | CI, Forecasting, Market Analytics</p>
-      <div class="bio">Life sciences consulting professional with 18 years of experience supporting pharmaceutical and biotech clients across strategy, analytics, and commercial decision-making. Deep expertise in oncology, immunology, and rare diseases, with a strong track record in market assessment, competitive intelligence, forecasting, and pipeline analytics. Has led high-impact engagements and teams, delivering insights that drive asset prioritization and portfolio strategy. Experience includes SmartAnalyst (INIZIO Group), and WNS Analytics.</div>
+    <div class="leader-card">
+      <div class="leader-top">
+        <img src="saurabh.jpg.png" alt="Saurabh Mittal" class="leader-photo" loading="lazy">
+        <div class="leader-info">
+          <h3 class="leader-name">Saurabh Mittal</h3>
+          <p class="leader-role">18+ years | CI, Forecasting, Market Analytics</p>
+        </div>
+      </div>
+      <p class="leader-bio">Life sciences consulting professional with 18 years of experience supporting pharmaceutical and biotech clients across strategy, analytics, and commercial decision-making. Deep expertise in oncology, immunology, and rare diseases, with a strong track record in market assessment, competitive intelligence, forecasting, and pipeline analytics. Has led high-impact engagements and teams, delivering insights that drive asset prioritization and portfolio strategy. Experience includes SmartAnalyst (INIZIO Group), and WNS Analytics.</p>
     </div>
   </div>
 </section>
