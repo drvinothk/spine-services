@@ -65,13 +65,13 @@ nav a:hover { color:#4da3ff; }
 .about-content h3 { font-size:24px; color:#7cc2ff; margin-top:30px; margin-bottom:15px; }
 .about-content p { margin-bottom:15px; text-align:left; }
 .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-.card { background:#0c1220; padding:24px; border-radius:10px; border:1px solid #1a2338; }
+.card { background:#0c1220; padding:24px; border-radius:14px; border:1px solid #1a2338; transition:transform 0.15s ease,box-shadow 0.15s ease; transform-style:preserve-3d; }
 .card h3 { font-size:22px; color:#4da3ff; margin-top:0; margin-bottom:15px; }
 .card ul { list-style:none; padding:0; margin:0; }
 .card li { margin-bottom:12px; font-size:14px; color:#e9edf5; }
 .card li strong { color:#4da3ff; display:inline; }
 .cap-grid { display:flex; flex-wrap:wrap; gap:8px 16px; margin-top:12px; }
-.cap-item { flex:0 0 auto; background:rgba(77,163,255,0.06); border:1px solid rgba(77,163,255,0.15); border-radius:6px; padding:8px 14px; }
+.cap-item { flex:1 1 45%; background:rgba(77,163,255,0.06); border:1px solid rgba(77,163,255,0.2); border-radius:8px; padding:10px 12px; box-sizing:border-box; overflow:visible; }
 .cap-item strong { display:block; font-size:13px; color:#4da3ff; font-weight:700; letter-spacing:0.01em; }
 .cap-item span { display:block; font-size:11px; color:#7a8fa6; margin-top:3px; line-height:1.4; }
 .grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
@@ -80,7 +80,7 @@ nav a:hover { color:#4da3ff; }
 .impact-grid img { display:none; }
 .impact-stats { display:contents; }
 .impact-stat { background:#0c1220; border:1px solid #1a2338; border-radius:14px; padding:32px 24px; display:flex; flex-direction:column; justify-content:center; }
-.impact-stat .number { font-size:36px; font-weight:800; color:#ffffff; line-height:1; margin-bottom:4px; }
+.impact-stat .number { font-size:30px; font-weight:600; color:#ffffff; line-height:1; margin-bottom:4px; }
 .impact-stat .label { font-size:14px; color:#a7b0c0; margin-top:0; line-height:1.5; }\n.impact-stat .range { font-size:13px; color:#4da3ff; margin-top:8px; font-weight:600; display:block; }
 .testimonial-card { background:#0c1220; padding:24px; border-radius:10px; border:1px solid #1a2338; text-align:center; margin: 0 auto; max-width: 800px; margin-bottom: 20px; }
 .testimonial-card p { font-style:italic; margin-bottom:12px; }
@@ -94,7 +94,7 @@ nav a:hover { color:#4da3ff; }
 .email-btn:hover { background:#1a2338; transform:translateY(-2px); }
 .email-btn .icon { font-size:24px; }
 .email-btn .email-text { font-weight:600; color:#4da3ff; }
-.calendly-section { margin-top:20px; text-align:center; padding-bottom:0; }
+.calendly-section { margin-top:20px; text-align:center; padding:20px 24px 16px; max-width:760px; margin-left:auto; margin-right:auto; }
 .calendly-section h3 { font-size:20px; margin-bottom:16px; color:#7cc2ff; }
 .calendly-inline-widget { width: 62.5%; max-width: 650px; min-width: 320px; height: 450px; margin: 0 auto; }
 footer { text-align:center; padding:20px; color:#888; }
@@ -372,7 +372,7 @@ footer { text-align:center; padding:20px; color:#888; }
 </script>
 <script>
 (function(){
-  var tiltEls = document.querySelectorAll('.tilt-box, .impact-stat, .testimonial-card, .leader-card');
+    var tiltEls = document.querySelectorAll('.tilt-box, .impact-stat, .testimonial-card, .leader-card, .card');
   var MAX_TILT = 6;
   tiltEls.forEach(function(el){
     el.addEventListener('mousemove', function(e){
