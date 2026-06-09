@@ -66,7 +66,7 @@ nav a:hover { color:#4da3ff; }
 .about-content p { margin-bottom:15px; text-align:left; }
 .offerings-row { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; align-items:start; }
 .offering-card { background:#0c1220; border:1px solid #1a2338; border-radius:14px; padding:26px 22px 20px; position:relative; cursor:default; transition:transform 0.55s cubic-bezier(0.23,1,0.32,1),box-shadow 0.55s,border-color 0.3s; transform-style:preserve-3d; will-change:transform; }
-.offering-card:hover { border-color:rgba(77,163,255,0.45); box-shadow:0 16px 48px rgba(77,163,255,0.18); } .offering-card-title { font-size:19px; font-weight:800; color:#4da3ff; margin:0 0 8px; letter-spacing:-0.01em; }
+.offering-card:hover { border-color:rgba(77,163,255,0.45); box-shadow:0 16px 48px rgba(77,163,255,0.18); } .offering-card-title { font-size:19px; font-weight:800; color:#ffffff; margin:0 0 10px; letter-spacing:-0.01em; }
 .card ul { list-style:none; padding:0; margin:0; }
 .card li { margin-bottom:12px; font-size:14px; color:#e9edf5; }
 .cap-grid { display:flex; flex-wrap:wrap; gap:8px 16px; margin-top:12px; overflow:visible; }
@@ -100,8 +100,9 @@ nav a:hover { color:#4da3ff; }
 .offering-dropdown-label { display:none; }
 .offering-tiles { display:flex; flex-direction:column; gap:8px; margin-top:8px; }
 .offering-tile { background:rgba(77,163,255,0.06); border:1px solid rgba(77,163,255,0.2); border-radius:8px; padding:10px 12px; }
-.offering-tile strong { display:block; font-size:13px; color:#e9edf5; font-weight:700; }
-.offering-tile span { display:block; font-size:11px; color:#a7b0c0; margin-top:3px; line-height:1.4; }
+.offering-tile strong { display:block; font-size:15px; color:#e9edf5; font-weight:700; }
+.offering-tile span { display:block; font-size:13px; color:#a7b0c0; margin-top:4px; line-height:1.4; }
+.offering-tile:hover { transform:scale(0.97); transition:transform 0.25s ease; box-shadow:0 4px 16px rgba(77,163,255,0.2); }
 .calendly-section { margin-top:20px; text-align:center; padding:12px 18px 10px; max-width:680px; margin-left:auto; margin-right:auto; }
 .calendly-inline-widget { width:100%; min-width:320px; height:258px; margin:0 auto; zoom:0.9; transform-origin:top center; }
 footer { text-align:center; padding:20px; color:#888; }
@@ -265,7 +266,7 @@ footer { text-align:center; padding:20px; color:#888; }
   <div class="calendly-section content-box tilt-box">
       <h3>Book a Meeting to Know More</h3>
       <!-- Calendly inline widget begin -->
-      <div class="calendly-inline-widget" data-url="https://calendly.com/drvinothk/30min?hide_gdpr_banner=&background_color=060818&text_color=a7b0c0&primary_color=4da3ff1" style="min-width:320px;height:700px;"></div>
+      <div class="calendly-inline-widget" data-url="https://calendly.com/drvinothk/30min?hide_gdpr_banner=1&background_color=060818&text_color=a7b0c0&primary_color=4da3ff" style="min-width:320px;height:700px;"></div>
       <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
       <!-- Calendly inline widget end -->
        <script>window.addEventListener('message',function(e){if(e.data&&e.data.event&&e.data.event.indexOf('calendly')===0){var el=document.querySelector('.calendly-inline-widget');if(el){var iframe=el.querySelector('iframe');if(iframe){iframe.style.background='transparent';iframe.style.filter='invert(1) hue-rotate(180deg) brightness(1.08) contrast(0.82) saturate(0.90)';}}}}); setTimeout(function(){var el=document.querySelector('.calendly-inline-widget');if(el){var iframe=el.querySelector('iframe');if(iframe){iframe.style.background='transparent';iframe.style.filter='invert(1) hue-rotate(180deg) brightness(1.08) contrast(0.82) saturate(0.90)';}}},(3000));document.querySelector('.calendly-inline-widget').addEventListener('load',function(){var iframe=this.querySelector('iframe');if(iframe){iframe.style.background='transparent';iframe.style.filter='invert(1) hue-rotate(180deg) brightness(1.08) contrast(0.82) saturate(0.90)';}},true);</script>
