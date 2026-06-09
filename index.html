@@ -64,9 +64,9 @@ nav a:hover { color:#4da3ff; }
 .about-content { max-width:900px; margin:0 auto; }
 .about-content h3 { font-size:24px; color:#7cc2ff; margin-top:30px; margin-bottom:15px; }
 .about-content p { margin-bottom:15px; text-align:left; }
-.cards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-.card { background:#0c1220; padding:24px; border-radius:14px; border:1px solid #1a2338; transition:transform 0.15s ease,box-shadow 0.15s ease; transform-style:preserve-3d; }
-.card h3 { font-size:22px; color:#4da3ff; margin-top:0; margin-bottom:15px; }
+.offerings-row { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; align-items:start; }
+.offering-card { background:#0c1220; border:1px solid #1a2338; border-radius:14px; padding:26px 22px 20px; position:relative; cursor:default; transition:transform 0.55s cubic-bezier(0.23,1,0.32,1),box-shadow 0.55s,border-color 0.3s; transform-style:preserve-3d; will-change:transform; }
+.offering-card:hover { border-color:rgba(77,163,255,0.45); box-shadow:0 16px 48px rgba(77,163,255,0.18); } .offering-card-title { font-size:19px; font-weight:800; color:#4da3ff; margin:0 0 8px; letter-spacing:-0.01em; }
 .card ul { list-style:none; padding:0; margin:0; }
 .card li { margin-bottom:12px; font-size:14px; color:#e9edf5; }
 .cap-grid { display:flex; flex-wrap:wrap; gap:8px 16px; margin-top:12px; overflow:visible; }
@@ -107,7 +107,7 @@ footer { text-align:center; padding:20px; color:#888; }
   .hero-image { max-width:100%; }
   .grid { grid-template-columns:1fr; }
   .impact-grid { grid-template-columns:1fr; }
-  .cards { grid-template-columns:1fr; }
+  .offerings-row { grid-template-columns:1fr; } .offering-dropdown { position:static; margin-top:12px; opacity:1; pointer-events:auto; transform:none; box-shadow:none; }
   .team { grid-template-columns:1fr; } .calendly-inline-widget { width: 100%; max-width: 100%; height: 525px; }
 }
 .leader-card { background:#0c1220; border:1px solid #1a2338; border-radius:14px; padding:28px; display:flex; flex-direction:column; gap:20px; }
@@ -123,7 +123,7 @@ footer { text-align:center; padding:20px; color:#888; }
 .tilt-box,.impact-stat,.testimonial-card,.leader-card{transition:transform 0.15s ease,box-shadow 0.15s ease;transform-style:preserve-3d;will-change:transform;}
 .tilt-box:hover,.impact-stat:hover,.testimonial-card:hover,.leader-card:hover{box-shadow:0 16px 48px rgba(77,163,255,0.18);}
 .calendly-box{background:#0c1220;border:1px solid #1a2338;border-radius:14px;padding:28px 32px;max-width:700px;margin:0 auto;}
-.cursor-dot{position:fixed;width:8px;height:8px;background:#4da3ff;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);transition:transform 0.1s;z-index:99999;} .cursor-ring{position:fixed;width:32px;height:32px;border:2px solid rgba(77,163,255,0.5);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);transition:width 0.3s,height 0.3s,border-color 0.3s;z-index:99998;} .cursor-ring.expand{width:48px;height:48px;border-color:rgba(77,163,255,0.8);} @keyframes fadeInUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}} .reveal{opacity:0;} .reveal.visible{animation:fadeInUp 0.7s ease forwards;} @keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}} .hero-image img{animation:heroFloat 5s ease-in-out infinite;} .card{transition:transform 0.55s cubic-bezier(0.23,1,0.32,1),box-shadow 0.55s;} .card:hover{transform:scale(1.025) translateY(-10px);box-shadow:0 8px 40px rgba(77,163,255,0.18);} nav a{position:relative;} nav a::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:2px;background:#4da3ff;transition:width 0.3s;} nav a:hover::after{width:100%;} .card-label{font-size:1.1rem !important;font-weight:700 !important;color:#4da3ff;border-bottom:2px solid rgba(77,163,255,0.4);padding-bottom:6px;margin-bottom:12px;display:block;} @keyframes sectionFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}} .grid-image{animation:sectionFloat 6s ease-in-out infinite;} .impact-grid img{animation:sectionFloat 6s ease-in-out infinite 0.5s;}</style>
+.cursor-dot{position:fixed;width:8px;height:8px;background:#4da3ff;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);transition:transform 0.1s;z-index:99999;} .cursor-ring{position:fixed;width:32px;height:32px;border:2px solid rgba(77,163,255,0.5);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);transition:width 0.3s,height 0.3s,border-color 0.3s;z-index:99998;} .cursor-ring.expand{width:48px;height:48px;border-color:rgba(77,163,255,0.8);} @keyframes fadeInUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}} .reveal{opacity:0;} .reveal.visible{animation:fadeInUp 0.7s ease forwards;} @keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}} .hero-image img{animation:heroFloat 5s ease-in-out infinite;} } nav a{position:relative;} nav a::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:2px;background:#4da3ff;transition:width 0.3s;} nav a:hover::after{width:100%;} .card-label{font-size:1.1rem !important;font-weight:700 !important;color:#4da3ff;border-bottom:2px solid rgba(77,163,255,0.4);padding-bottom:6px;margin-bottom:12px;display:block;} @keyframes sectionFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}} .grid-image{animation:sectionFloat 6s ease-in-out infinite;} .impact-grid img{animation:sectionFloat 6s ease-in-out infinite 0.5s;}</style>
 </head>
 <body>
   <div class="cursor-dot"></div>
@@ -165,41 +165,8 @@ footer { text-align:center; padding:20px; color:#888; }
 
 <section class="section" id="services">
   <h2>Core Offerings</h2>
-  <div class="cards">
-<div class="card">
-        <h3>Strategic Consulting</h3>
-        <div class="cap-grid">
-          <div class="cap-item"><strong>Competitive Intelligence Monitoring</strong><span>Real-time tracking of competitor pipelines, launches, and strategic moves</span></div>
-          <div class="cap-item"><strong>Conference Coverage</strong><span>Pre-congress planning and post-event synthesis from major pharma congresses</span></div>
-          <div class="cap-item"><strong>Pipeline &amp; Portfolio Strategy</strong><span>Pipeline assessment, prioritization, and portfolio gap analysis</span></div>
-          <div class="cap-item"><strong>Forecasting &amp; Commercial Analytics</strong><span>Data-driven market sizing, patient flow, and revenue forecasting</span></div>
-          <div class="cap-item"><strong>Business Development &amp; External Innovation</strong><span>BD target identification, deal assessment, and licensing support</span></div>
-          <div class="cap-item"><strong>Governance &amp; Decision Support</strong><span>Structured insights for leadership reviews and governance committees</span></div>
-          <div class="cap-item"><strong>Syndicated &amp; Custom Insights</strong><span>Ready-to-use syndicated reports and bespoke research deliverables</span></div>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Medical &amp; Scientific</h3>
-        <div class="cap-grid">
-          <div class="cap-item"><strong>Primary Market Research Insights</strong><span>Qualitative and quantitative research with HCPs and payers</span></div>
-          <div class="cap-item"><strong>KOL &amp; Stakeholder Intelligence</strong><span>KOL identification, mapping, and engagement strategy</span></div>
-          <div class="cap-item"><strong>Patient Journey &amp; Treatment Insights</strong><span>Patient pathway analysis from diagnosis through treatment</span></div>
-          <div class="cap-item"><strong>Scientific Intelligence &amp; Literature Review</strong><span>Systematic literature review and evidence synthesis</span></div>
-          <div class="cap-item"><strong>Medical Communications &amp; Content Development</strong><span>Scientific content for publications, congresses, and internal use</span></div>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Dedicated Excellence Centers</h3>
-        <div class="cap-grid">
-          <div class="cap-item"><strong>Build-Operate-Scale Model</strong><span>End-to-end support to set up and scale specialist capability centers</span></div>
-          <div class="cap-item"><strong>Embedded FTE Model</strong><span>Fully integrated teams with client systems, processes, and culture</span></div>
-          <div class="cap-item"><strong>Multi-Functional Capability</strong><span>Extend beyond life sciences into adjacent functions and domains</span></div>
-          <div class="cap-item"><strong>Cost Optimization &amp; Efficiency</strong><span>Optimize resource utilization and reduce operational overhead</span></div>
-          <div class="cap-item"><strong>Scalable Growth Enablement</strong><span>Designed for emerging and mid-size companies scaling operations</span></div>
-        </div>
-      </div>
-    </div>
-</section>
+  <div class="offerings-row"><div class="offering-card tilt-box"><div class="offering-card-title">Strategic Consulting &amp; BD&amp;L</div><div class="offering-card-desc">Commercial strategy, analytics, and business development &amp; licensing support for pharma and biotech teams.</div><div class="offering-card-footer"><span>4 focus areas</span><span class="offering-chevron">&#9660;</span></div><div class="offering-dropdown"><div class="offering-dropdown-label">Focus areas</div><div class="offering-tiles"><div class="offering-tile"><strong>Competitive &amp; Event Intelligence</strong><span>Real-time competitor tracking plus congress planning and post-event synthesis.</span></div><div class="offering-tile"><strong>Pipeline &amp; Portfolio Strategy</strong><span>Portfolio assessment, prioritization, whitespace mapping, and opportunity review.</span></div><div class="offering-tile"><strong>Business Development &amp; External Innovation</strong><span>Target identification, landscape evaluation, and BD&amp;L support for partnerships or licensing.</span></div><div class="offering-tile"><strong>Forecasting &amp; Commercial Analytics</strong><span>Market sizing, patient flow modeling, and commercial forecasting for planning cycles.</span></div></div></div></div><div class="offering-card tilt-box"><div class="offering-card-title">Medical, Scientific &amp; HEOR</div><div class="offering-card-desc">Evidence generation, scientific storytelling, and outcomes-focused insight for medical and access teams.</div><div class="offering-card-footer"><span>3 focus areas</span><span class="offering-chevron">&#9660;</span></div><div class="offering-dropdown"><div class="offering-dropdown-label">Focus areas</div><div class="offering-tiles"><div class="offering-tile"><strong>Scientific Communications &amp; SLR</strong><span>Scientific content development plus systematic literature review and evidence synthesis.</span></div><div class="offering-tile"><strong>Primary Market Research Insights</strong><span>Qualitative and quantitative research with HCPs, payers, and other stakeholders.</span></div><div class="offering-tile" style="flex:1 1 100%;"><strong>HEOR Support</strong><span>Health outcomes evidence to strengthen value communication and access discussions.</span></div></div></div></div><div class="offering-card tilt-box"><div class="offering-card-title">GCC &amp; Flexible Team Models</div><div class="offering-card-desc">Establish global capability centers or embed specialist teams aligned to your workflows and operating model.</div><div class="offering-card-footer"><span>2 focus areas</span><span class="offering-chevron">&#9660;</span></div><div class="offering-dropdown"><div class="offering-dropdown-label">Focus areas</div><div class="offering-tiles single-col"><div class="offering-tile"><strong>GCC Build-Operate-Scale</strong><span>End-to-end support to establish and scale specialized global capability centers.</span></div><div class="offering-tile"><strong>Embedded / Flexible FTE Models</strong><span>Dedicated specialist teams integrated into client tools, processes, and operating rhythms.</span></div></div></div></div>
+
 
 <section class="section">
   <h2>AI-Enabled, Human-Guided</h2>
@@ -372,7 +339,7 @@ footer { text-align:center; padding:20px; color:#888; }
 </script>
 <script>
 (function(){
-    var tiltEls = document.querySelectorAll('.tilt-box, .impact-stat, .testimonial-card, .leader-card, .card');
+    var tiltEls = document.querySelectorAll('.tilt-box, .impact-stat, .testimonial-card, .leader-card, .offering-card');
   var MAX_TILT =3;
   tiltEls.forEach(function(el){
     el.addEventListener('mousemove', function(e){
