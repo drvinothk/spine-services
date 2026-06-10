@@ -325,7 +325,23 @@ nav a:hover::after { width:100%; }
       <span class="email-text">connect@spineservices.org</span>
     </a>
   </div>
-  <div class="calendly-box reveal" style="margin-top:40px;">
+  
+<script>
+(function(){
+  var CAL_FILTER='invert(1) hue-rotate(180deg) brightness(1.08) contrast(0.82) saturate(0.90)';
+  function applyFilter(){
+    var el=document.querySelector('.calendly-inline-widget');
+    if(!el)return;
+    var iframe=el.querySelector('iframe');
+    if(iframe){iframe.style.filter=CAL_FILTER;iframe.style.background='transparent';}
+  }
+  setTimeout(applyFilter,2000);
+  setTimeout(applyFilter,4000);
+  window.addEventListener('message',function(e){
+    if(e.data&&e.data.event&&e.data.event.indexOf('calendly')===0){setTimeout(applyFilter,500);}
+  });
+})();
+</script><div class="calendly-box reveal" style="margin-top:40px;">
     <h3 style="text-align:center;margin-bottom:4px;">Book a Meeting to Know More</h3>
     <div class="calendly-section">
       <div class="calendly-inline-widget" data-url="https://calendly.com/drvinothk/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=06080f&text_color=e9edf5&primary_color=4da3ff"></div>
@@ -344,7 +360,7 @@ nav a:hover::after { width:100%; }
     <button onclick="document.getElementById('cookie-banner').style.display='none';" style="background:transparent;border:none;color:#888;font-size:18px;cursor:pointer;padding:0 4px;">&times;</button>
   </div>
 </div>
-<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
 <script>
 if(localStorage.getItem('cookie-ok')||localStorage.getItem('cookie-reject')){document.getElementById('cookie-banner').style.display='none';}
 (function(){
