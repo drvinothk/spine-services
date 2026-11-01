@@ -1,0 +1,5 @@
+# Read only by the Cloudflare Pages copy, keeps it out of search results.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex
